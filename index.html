@@ -33,15 +33,16 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 60px}
-.logo{width:120px;height:120px;border-radius:24px;margin-bottom:32px;object-fit:contain;box-shadow:0 4px 24px rgba(107,63,160,0.15)}
+.logo{width:160px;height:160px;border-radius:24px;margin-bottom:32px;object-fit:contain;box-shadow:0 4px 24px rgba(107,63,160,0.15)}
+.logo-fallback{display:none;align-items:center;justify-content:center;width:160px;height:160px;border-radius:24px;margin-bottom:32px;background:linear-gradient(135deg,var(--primary),var(--primary-mid));font-family:var(--serif);font-size:3rem;color:white}
 .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);text-align:center;margin-bottom:12px;color:var(--dark)}
 .hero h1 em{font-style:italic;color:var(--primary-mid)}
 .hero-sub{font-size:1.1rem;color:var(--muted);text-align:center;max-width:500px;margin-bottom:48px}
 
-.catedre-section{width:100%;max-width:900px}
+.catedre-section{width:100%;max-width:900px;margin:0 auto}
 .catedre-title{font-family:var(--serif);font-size:1.4rem;text-align:center;margin-bottom:32px;color:var(--dark)}
-.catedre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.catedre-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 20px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius);text-decoration:none;transition:all 0.3s}
+.catedre-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;justify-items:center}
+.catedre-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 20px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius);text-decoration:none;transition:all 0.3s;width:100%;max-width:180px}
 .catedre-btn:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(107,63,160,0.2);border-color:var(--primary-mid)}
 .catedre-btn .icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
 .catedre-btn .label{font-size:0.95rem;font-weight:600;color:var(--text);text-align:center}
@@ -55,12 +56,16 @@ footer{padding:40px 24px;text-align:center;color:var(--muted)}
 footer p{font-size:0.85rem}
 footer strong{color:var(--text)}
 
-@media(max-width:700px){
+@media(max-width:900px){
+  .catedre-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
   .catedre-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:450px){
+@media(max-width:400px){
   .catedre-grid{grid-template-columns:1fr}
-  .hero{min-height:auto;padding:80px 20px 40px}
+  .hero{min-height:auto;padding:60px 16px 40px}
+  .logo{width:100px;height:100px;border-radius:20px;margin-bottom:24px}
   .catedre-btn{padding:20px 16px}
   .catedre-btn .icon{width:44px;height:44px;font-size:1.2rem}
   .catedre-btn .label{font-size:0.85rem}
@@ -70,7 +75,8 @@ footer strong{color:var(--text)}
 <body>
 
 <div class="hero">
-  <img src="logo.png" alt="Logo Liceul Teoretic Ana Ipătescu" class="logo">
+  <img src="logo.png" alt="Logo Liceul Teoretic Ana Ipătescu" class="logo" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='flex'">
+  <div id="logo-fb" class="logo-fallback" style="display:none">AI</div>
   <h1>Liceul Teoretic <em>„Ana Ipătescu"</em></h1>
   <p class="hero-sub">Portalul catedrelor școlare. Accesează materia dorită pentru a vedea conținutul.</p>
 </div>
