@@ -1,31 +1,150 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La mia prima pagina</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
-        h1 {
-            color: #333;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liceul Teoretic „Ana Ipătescu" Gherla — Portal Catedre</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary: #6b3fa0;
+  --primary-light: #f3eef9;
+  --primary-mid: #8b5fc4;
+  --secondary: #8b1a4a;
+  --secondary-light: #f9eef3;
+  --accent: #1a6b5c;
+  --accent-light: #e8f5f0;
+  --gold: #8a6500;
+  --gold-light: #fdf8e3;
+  --dark: #1a1020;
+  --text: #251a30;
+  --muted: #7a6a8a;
+  --border: #e8ddf0;
+  --bg: #fdfafc;
+  --white: #ffffff;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 60px}
+.logo{width:120px;height:120px;border-radius:24px;margin-bottom:32px;object-fit:contain;box-shadow:0 4px 24px rgba(107,63,160,0.15)}
+.hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);text-align:center;margin-bottom:12px;color:var(--dark)}
+.hero h1 em{font-style:italic;color:var(--primary-mid)}
+.hero-sub{font-size:1.1rem;color:var(--muted);text-align:center;max-width:500px;margin-bottom:48px}
+
+.catedre-section{width:100%;max-width:900px}
+.catedre-title{font-family:var(--serif);font-size:1.4rem;text-align:center;margin-bottom:32px;color:var(--dark)}
+.catedre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.catedre-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 20px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius);text-decoration:none;transition:all 0.3s}
+.catedre-btn:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(107,63,160,0.2);border-color:var(--primary-mid)}
+.catedre-btn .icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.catedre-btn .label{font-size:0.95rem;font-weight:600;color:var(--text);text-align:center}
+.catedre-btn.c-primary .icon{background:var(--primary-light);color:var(--primary)}
+.catedre-btn.c-secondary .icon{background:var(--secondary-light);color:var(--secondary)}
+.catedre-btn.c-accent .icon{background:var(--accent-light);color:var(--accent)}
+.catedre-btn.c-gold .icon{background:var(--gold-light);color:var(--gold)}
+.catedre-btn.c-mix .icon{background:linear-gradient(135deg,var(--primary-light),var(--secondary-light));color:var(--primary)}
+
+footer{padding:40px 24px;text-align:center;color:var(--muted)}
+footer p{font-size:0.85rem}
+footer strong{color:var(--text)}
+
+@media(max-width:700px){
+  .catedre-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:450px){
+  .catedre-grid{grid-template-columns:1fr}
+  .hero{min-height:auto;padding:80px 20px 40px}
+  .catedre-btn{padding:20px 16px}
+  .catedre-btn .icon{width:44px;height:44px;font-size:1.2rem}
+  .catedre-btn .label{font-size:0.85rem}
+}
+</style>
 </head>
 <body>
 
-    <h1>Hello World!</h1>
+<div class="hero">
+  <img src="logo.png" alt="Logo Liceul Teoretic Ana Ipătescu" class="logo">
+  <h1>Liceul Teoretic <em>„Ana Ipătescu"</em></h1>
+  <p class="hero-sub">Portalul catedrelor școlare. Accesează materia dorită pentru a vedea conținutul.</p>
+</div>
+
+<div class="catedre-section">
+  <h2 class="catedre-title">Catedrele Liceului</h2>
+  <div class="catedre-grid">
+    <a href="https://anaipatescu12.github.io/chimie-fizica" class="catedre-btn c-primary">
+      <div class="icon"><i class="fas fa-flask"></i></div>
+      <span class="label">Chimie-Fizică</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/limbaromana" class="catedre-btn c-secondary">
+      <div class="icon"><i class="fas fa-book"></i></div>
+      <span class="label">Limba Română</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/limba-franceza" class="catedre-btn c-primary">
+      <div class="icon"><i class="fas fa-paragraph"></i></div>
+      <span class="label">Limba Franceză</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/biologie" class="catedre-btn c-accent">
+      <div class="icon"><i class="fas fa-leaf"></i></div>
+      <span class="label">Biologie</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/limba-engleza" class="catedre-btn c-primary">
+      <div class="icon"><i class="fas fa-globe-americas"></i></div>
+      <span class="label">Limba Engleză</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/informatica-tic" class="catedre-btn c-mix">
+      <div class="icon"><i class="fas fa-laptop-code"></i></div>
+      <span class="label">Informatică-TIC</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/religie" class="catedre-btn c-gold">
+      <div class="icon"><i class="fas fa-pray"></i></div>
+      <span class="label">Religie</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/geografie" class="catedre-btn c-accent">
+      <div class="icon"><i class="fas fa-globe-europe"></i></div>
+      <span class="label">Geografie</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/istorie" class="catedre-btn c-secondary">
+      <div class="icon"><i class="fas fa-landmark"></i></div>
+      <span class="label">Istorie</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/socio-umane" class="catedre-btn c-primary">
+      <div class="icon"><i class="fas fa-users"></i></div>
+      <span class="label"> Socio-Umane</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/muzica-desen" class="catedre-btn c-secondary">
+      <div class="icon"><i class="fas fa-palette"></i></div>
+      <span class="label">Muzică-Desen</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/matematica" class="catedre-btn c-accent">
+      <div class="icon"><i class="fas fa-calculator"></i></div>
+      <span class="label">Matematică</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/educatie-fizica" class="catedre-btn c-gold">
+      <div class="icon"><i class="fas fa-running"></i></div>
+      <span class="label">Educație Fizică</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/tehnologic" class="catedre-btn c-mix">
+      <div class="icon"><i class="fas fa-tools"></i></div>
+      <span class="label">Structura Tehnologică</span>
+    </a>
+    <a href="https://anaipatescu12.github.io/tur-virtual" class="catedre-btn c-mix">
+      <div class="icon"><i class="fas fa-vr-cardboard"></i></div>
+      <span class="label">Tur Virtual</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Liceul Teoretic „Ana Ipătescu"</strong> · Gherla, Cluj</p>
+  <p style="margin-top:4px">© 2026 · Toate drepturile rezervate</p>
+</footer>
 
 </body>
 </html>
